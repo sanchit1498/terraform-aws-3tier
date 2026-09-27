@@ -12,7 +12,7 @@ A reproducible rebuild of a manually-built 3-tier AWS architecture (originally b
 ## Why modular Terraform
 
 The project is split into 4 independent modules — `vpc`, `security`, `ec2`, `rds` — each with its own `main.tf` / `variables.tf` / `outputs.tf`, wired together by a root module. This mirrors how real teams structure infrastructure: modules stay reusable and portable, and one module's outputs feed automatically into another's inputs (e.g. the security module receives the VPC's ID as an input, rather than a hardcoded value).
-
+```
 aws-3tier-terraform/
 ├── main.tf, variables.tf, outputs.tf, terraform.tfvars (root — ties everything together)
 └── modules/
@@ -20,7 +20,7 @@ aws-3tier-terraform/
 ├── security/ → web-sg, db-sg
 ├── ec2/ → EC2 instance (nginx + Flask)
 └── rds/ → DB subnet group + RDS MySQL instance
-
+```
 
 
 ## Key concepts demonstrated
